@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<config>
+    <modules>
+        <YAV_Bansale>
+            <version>0.1.0</version>
+        </YAV_Bansale>
+    </modules>
+    <global>
+        <helpers>
+            <bansale>
+                <class>YAV_Bansale_Helper</class>
+            </bansale>
+        </helpers>
+    </global>
+    <frontend>
+        <events>
+            <checkout_cart_product_add_after>
+                <observers>
+                    <bansale>
+                        <type>singleton</type>
+                        <class>YAV_Bansale_Model_Observer</class>
+                        <method>checkAvailability</method>
+                    </bansale>
+                </observers>
+            </checkout_cart_product_add_after>
+        </events>
+    </frontend>
+    <admin>
+    </admin>
+    <adminhtml>
+    </adminhtml>
+    <default>
+        <bansale>
+            <settings>
+                <enabled>1</enabled>
+                <starttime>23:00</starttime>
+                <endtime>8:00</endtime>
+            </settings>
+        </bansale>
+    </default>
+</config>
