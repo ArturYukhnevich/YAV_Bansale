@@ -50,7 +50,7 @@ class YAV_Bansale_Model_Source_TimeSelect
         $tNow = $tStart;
 
         while ($tNow <= $tEnd) {
-            $this->times[] = date("H:i", $tNow);
+            $this->times[] = date("h:i A", $tNow);
             $tNow = strtotime('+1 hours', $tNow);
         }
     }
