@@ -15,7 +15,7 @@ Class YAV_Bansale_Model_Observer extends Varien_Event_Observer
 
         if (($curTime < $startTime) && ($curTime > $endTime)) {
             return true;
-        }
+        }   
 
         $categoryIds = explode(',', Mage::getStoreConfig('bansale/settings/category'));
 
@@ -28,7 +28,7 @@ Class YAV_Bansale_Model_Observer extends Varien_Event_Observer
 
         Mage::getSingleton('checkout/cart')->truncate();
 
-        Mage::getSingleton('core/session')->addError('Sale of alcohol is prohibited at the current time.');
+        Mage::getSingleton('core/session')->addError('Sale of alcohol is prohibited at the current time!');
         session_write_close();
 
         // Mage::app()->getFrontController()->getResponse()->setRedirect($_SERVER['HTTP_REFERER'])->sendResponse();

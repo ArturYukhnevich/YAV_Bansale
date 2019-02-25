@@ -24,6 +24,13 @@
                 </observers>
             </checkout_cart_product_add_after>
         </events>
+        <layout>
+            <updates>
+                <bansale module="TimeLock">
+                    <file>bansale.xml</file>
+                </bansale>
+            </updates>
+        </layout>
     </frontend>
     <admin>
     </admin>
