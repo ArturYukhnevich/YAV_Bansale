@@ -10,7 +10,6 @@
       "email": "arturyukhnevich@gmail.com"
     }
   ],
-  "minimum-stability": "stable",
   "require": {
     "magento-hackathon/magento-composer-installer": "*"
   }
