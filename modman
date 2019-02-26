@@ -6,4 +6,11 @@ app/code/local/YAV/Bansale/Model/Observer.php app/code/local/YAV/Bansale/Model/O
 app/code/local/YAV/Bansale/Model/Source/CategorySelect.php app/code/local/YAV/Bansale/Model/Source/CategorySelect.php
 app/code/local/YAV/Bansale/Model/Source/TimeSelect.php app/code/local/YAV/Bansale/Model/Source/TimeSelect.php
 app/code/local/YAV/Bansale/Model/Source/Status.php app/code/local/YAV/Bansale/Model/Source/Status.php
+app/code/local/YAV/Bansale/Block/Wishlist/Button.php app/code/local/YAV/Bansale/Block/Wishlist/Button.php
 app/code/local/YAV/Bansale/Helper/Data.php app/code/local/YAV/Bansale/Helper/Data.php
+app/design/frontend/base/default/template/bansale/wishlist/cart.phtml app/design/frontend/base/default/template/bansale/wishlist/cart.phtml
+app/design/frontend/base/default/template/bansale/wishlist/tocart.phtml app/design/frontend/base/default/template/bansale/wishlist/tocart.phtml
+app/design/frontend/base/default/template/bansale/catalog/product/list.phtml app/design/frontend/base/default/template/bansale/catalog/product/list.phtml
+app/design/frontend/base/default/template/bansale/catalog/product/compare/list.phtml app/design/frontend/base/default/template/bansale/catalog/product/compare/list.phtml
+app/design/frontend/base/default/template/bansale/catalog/product/view/addtocart.phtml app/design/frontend/base/default/template/bansale/catalog/product/view/addtocart.phtml
+app/design/frontend/base/default/layout/bansale.xml app/design/frontend/base/default/layout/bansale.xml
