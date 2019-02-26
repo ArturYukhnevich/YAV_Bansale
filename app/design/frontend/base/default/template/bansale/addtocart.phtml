@@ -1,22 +1,32 @@
 <?php $_product = $this->getProduct(); ?>
 <?php $buttonTitle = $this->__('Add to Cart'); ?>
+
+<?php
+/** @var YAV_Bansale_Helper_Data $bansaleHelper */
+$bansaleHelper = Mage::helper('bansale');
+?>
 <?php if ($_product->isSaleable()): ?>
     <div class="add-to-cart">
-        <?php $helper = Mage::helper('bansale'); ?>
-        <?php if ($helper->checkAvailability()): ?>
-            <?php if (!$_product->isGrouped()): ?>
-                <label for="qty"><?php echo $this->__('Qty:') ?></label>
-                <input type="text" name="qty" id="qty" maxlength="12"
-                       value="<?php echo $this->getProductDefaultQty() * 1 ?>" title="<?php echo $this->__('Qty') ?>"
-                       class="input-text qty"/>
-            <?php endif; ?>
-            <button type="button" title="<?php echo $buttonTitle ?>" id="product-addtocart-button"
-                    class="button btn-cart"
-                    onclick="productAddToCartForm.submit(this)"><span><span><?php echo $buttonTitle ?></span></span>
-            </button>
-            <?php echo $this->getChildHtml('', true, true) ?>
-        <?php else: ?>
-            <label><?php echo 'Locked!' ?></label>
+        <?php if (!$_product->isGrouped()): ?>
+            <label for="qty"><?php echo $this->__('Qty:') ?></label>
+            <input type="text" name="qty" id="qty" maxlength="12"
+                   value="<?php echo $this->getProductDefaultQty() * 1 ?>" title="<?php echo $this->__('Qty') ?>"
+                   class="input-text qty"/>
+        <?php endif; ?>
+        <?php
+        $disabled = '';
+        if ($bansaleHelper->checkAvailabilityProduct($_product)) {
+            $disabled = 'disabled';
+        }
+        ?>
+        <button <?php echo $disabled ?> type="button" title="<?php echo $buttonTitle ?>"
+                                        id="product-addtocart-button"
+                                        class="button btn-cart"
+                                        onclick="productAddToCartForm.submit(this)">
+            <span><span><?php echo $buttonTitle ?></span></span>
+        </button>
+        <?php if ($disabled): ?>
+            <span class="error"><?php echo 'The sale is temporarily suspended.' ?></span>
         <?php endif; ?>
     </div>
 <?php endif; ?>

@@ -2,13 +2,10 @@
 
 class YAV_Bansale_Helper_Data extends Mage_Core_Helper_Abstract
 {
-    private function checkAvailability()
+    public function checkAvailabilityProduct($product)
     {
-        return false;
-
-
         if (!Mage::getStoreConfig('bansale/settings/enabled')) {
-            return true;
+            return false;
         }
 
         $curTime = Mage::getModel('core/date')->timestamp(time());
@@ -16,16 +13,14 @@ class YAV_Bansale_Helper_Data extends Mage_Core_Helper_Abstract
         $endTime = strtotime(Mage::getStoreConfig('bansale/settings/endtime'));
 
         if (($curTime < $startTime) && ($curTime > $endTime)) {
-            return true;
+            return false;
         }
 
         $categoryIds = explode(',', Mage::getStoreConfig('bansale/settings/category'));
+        $productCategoryIds = $product->getCategoryIds();
 
-//        $product = $observer->getProduct();
-//        $productCategoryIds = $product->getCategoryIds();
-//
-//        if (empty(array_intersect($categoryIds, $productCategoryIds))) {
-//            return true;
-//        }
+        if (empty(array_intersect($categoryIds, $productCategoryIds))) {
+            return true;
+        }
     }
 }
