@@ -17,7 +17,7 @@ class YAV_Bansale_Model_Source_TimeSelect
     public function toOptionArray()
     {
         $times = [];
-        foreach ($this->times as $time){
+        foreach ($this->times as $time) {
             $times[] = ['value' => $time, 'label' => Mage::helper('bansale')->__($time)];
         }
 
@@ -32,7 +32,7 @@ class YAV_Bansale_Model_Source_TimeSelect
     public function toArray()
     {
         $times = [];
-        foreach ($this->times as $time){
+        foreach ($this->times as $time) {
             $times[$time] = [$time => Mage::helper('bansale')->__($time)];
         }
 
@@ -49,10 +49,15 @@ class YAV_Bansale_Model_Source_TimeSelect
 
         $tNow = $tStart;
 
+
+        $format = 'h:i A';
+        if (Mage::getStoreConfig('catalog/custom_options/time_format') === '24h') {
+            $format = 'H:i';
+        }
+
         while ($tNow <= $tEnd) {
-            $this->times[] = date("h:i A", $tNow);
+            $this->times[] = date($format, $tNow);
             $tNow = strtotime('+1 hours', $tNow);
         }
     }
-
 }

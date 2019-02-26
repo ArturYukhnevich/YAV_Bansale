@@ -10,6 +10,7 @@ $options = $this->getChild('customer.wishlist.item.options')
 /** @var YAV_Bansale_Helper_Data $bansaleHelper */
 $bansaleHelper = Mage::helper('bansale');
 
+//FIXME
 $disabled = '';
 if ($bansaleHelper->checkAvailabilityProduct($product)) {
     $disabled = 'disabled';
