@@ -36,5 +36,10 @@
                 <template>bansale/wishlist/cart.phtml</template>
             </action>
         </reference>
+        <reference name="customer.wishlist.button.toCart">
+            <action method="setTemplate">
+                <template>bansale/wishlist/tocart.phtml</template>
+            </action>
+        </reference>
     </wishlist_index_index>
 </layout>

@@ -1,0 +1,11 @@
+
+<?php if($this->getWishlist()->getItemsCount() && $this->getWishlist()->isSalable()): ?>
+    <?php
+    $disabled = '';
+    if(!$this->checkItems()){
+        $disabled = 'disabled';
+    }
+    ?>
+
+    <button type="button" <?php echo $disabled ?> title="<?php echo $this->__('Add All to Cart') ?>" onclick="addAllWItemsToCart()" class="button btn-add"><span><span><?php echo $this->__('Add All to Cart') ?></span></span></button>
+<?php endif;?>

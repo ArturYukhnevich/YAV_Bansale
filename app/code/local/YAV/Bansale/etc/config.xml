@@ -11,22 +11,47 @@
                 <class>YAV_Bansale_Helper</class>
             </bansale>
         </helpers>
-    </global>
-    <frontend>
         <events>
             <checkout_cart_product_add_after>
                 <observers>
                     <bansale>
                         <type>singleton</type>
                         <class>YAV_Bansale_Model_Observer</class>
-                        <method>checkAvailability</method>
+                        <method>checkout_cart_product_add_after</method>
                     </bansale>
                 </observers>
             </checkout_cart_product_add_after>
+            <sales_order_place_before>
+                <observers>
+                    <bansale>
+                        <type>singleton</type>
+                        <class>YAV_Bansale_Model_Observer</class>
+                        <method>sales_order_place_before</method>
+                    </bansale>
+                </observers>
+            </sales_order_place_before>
+            <controller_action_predispatch_checkout_onepage_index>
+                <observers>
+                    <bansale>
+                        <type>singleton</type>
+                        <class>YAV_Bansale_Model_Observer</class>
+                        <method>controller_action_predispatch_checkout_onepage_index</method>
+                    </bansale>
+                </observers>
+            </controller_action_predispatch_checkout_onepage_index>
         </events>
+        <blocks>
+            <wishlist>
+                <rewrite>
+                    <customer_wishlist_button>YAV_Bansale_Block_Wishlist_Button</customer_wishlist_button>
+                </rewrite>
+            </wishlist>
+        </blocks>
+    </global>
+    <frontend>
         <layout>
             <updates>
-                <bansale module="TimeLock">
+                <bansale module="Bansale">
                     <file>bansale.xml</file>
                 </bansale>
             </updates>
@@ -40,8 +65,8 @@
         <bansale>
             <settings>
                 <enabled>1</enabled>
-                <starttime>23:00</starttime>
-                <endtime>8:00</endtime>
+                <starttime>11:00 PM</starttime>
+                <endtime>8:00 AM</endtime>
             </settings>
         </bansale>
     </default>

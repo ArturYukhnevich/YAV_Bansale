@@ -19,8 +19,10 @@ class YAV_Bansale_Helper_Data extends Mage_Core_Helper_Abstract
         $categoryIds = explode(',', Mage::getStoreConfig('bansale/settings/category'));
         $productCategoryIds = $product->getCategoryIds();
 
-        if (empty(array_intersect($categoryIds, $productCategoryIds))) {
+        if (!empty(array_intersect($categoryIds, $productCategoryIds))) {
             return true;
         }
+
+        return false;
     }
 }
